@@ -26,15 +26,10 @@ class Model_biaya_detail extends CI_Model
         return $this->db->affected_rows();
     }
 
-    // public function createMahasiswa($data)
-    // {
-    //     $this->db->insert('tb_biaya_detail', $data);
-    //     return $this->db->affected_rows();
-    // }
+    public function updateBiayaDetail($data, $id)
+    {
+        $this->db->update('tb_biaya_detail', $data, ['biaya_detail_id' => $id]);
+        return $this->db->affected_rows();
+    }
 
-    // public function updateMahasiswa($data, $id)
-    // {
-    //     $this->db->update('tb_biaya_detail', $data, ['biaya_detail_id' => $id]);
-    //     return $this->db->affected_rows();
-    // }
 }

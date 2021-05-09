@@ -52,9 +52,8 @@
 
         public function index_delete()
         {
-            # code...
-            $id =$this->delete('id');
-
+        # code...
+        $id =$this->delete('id');
             if ($id === null) 
             {
                 # code...
@@ -92,7 +91,6 @@
                 # alt + Shift + bawah > untuk copy data ke baris bawah
                 # alt + bawah/atas > untuk memindahkan data baris atas ke bawah
                 'Deskripsi' => $this -> post ('Deskripsi'),
-                // 'Jenjang' => $this -> post ('Jenjang'),
                 'CreatedBy' => $this -> post ('CreatedBy'),
                 'CreatedDate' => $this -> post ('CreatedDate'),
                 'ModifiedBy' => $this -> post ('ModifiedBy'),
@@ -127,7 +125,6 @@
                 # alt + Shift + bawah > untuk copy data ke baris bawah
                 # alt + bawah/atas > untuk memindahkan data baris atas ke bawah
                 'Deskripsi'     => $this -> put ('Deskripsi'),
-                // 'Jenjang'       => $this -> put ('Jenjang'),
                 'CreatedBy'     => $this -> put ('CreatedBy'),
                 'CreatedDate'   => $this -> put ('CreatedDate'),
                 'ModifiedBy'    => $this -> put ('ModifiedBy'),

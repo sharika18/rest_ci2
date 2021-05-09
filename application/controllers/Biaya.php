@@ -9,7 +9,7 @@
         {
             // Construct the parent class
             parent::__construct();
-            # mahasiswa alias Mahasiswa_model... 
+            # mbiaya alias Model_biaya... 
             $this->load->model('Model_biaya','mbiaya'); 
             # contoh menggunakan limit...
             //$this->methods['index_get']['limit'] = 2;
@@ -32,8 +32,6 @@
             $lastquery  = $this->db->last_query();
             if($biaya)
             {
-                // $this->response(
-                // $mahasiswa, RestController::HTTP_OK );
                 $this->response([
                     'status'    => true,
                     'query'     => $lastquery,

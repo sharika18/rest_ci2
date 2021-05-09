@@ -9,7 +9,6 @@
         {
             // Construct the parent class
             parent::__construct();
-            # mahasiswa alias Mahasiswa_model... 
             $this->load->model('Model_biaya_detail','mbiayadetail'); 
             # contoh menggunakan limit...
             //$this->methods['index_get']['limit'] = 2;
@@ -32,8 +31,6 @@
             $lastquery  = $this->db->last_query();
             if($biayadetail)
             {
-                // $this->response(
-                // $mahasiswa, RestController::HTTP_OK );
                 $this->response([
                     'status'    => true,
                     'query'     => $lastquery,
@@ -55,12 +52,6 @@
             $data = [
                 # alt + Shift + bawah > untuk copy data ke baris bawah
                 # alt + bawah/atas > untuk memindahkan data baris atas ke bawah
-                // 'Deskripsi' => $this -> post ('Deskripsi'),
-                // // 'Jenjang' => $this -> post ('Jenjang'),
-                // 'CreatedBy' => $this -> post ('CreatedBy'),
-                // 'CreatedDate' => $this -> post ('CreatedDate'),
-                // 'ModifiedBy' => $this -> post ('ModifiedBy'),
-                // 'ModifiedDate' => $this -> post ('ModifiedDate'),
                 'Biaya_ID' => $this -> post ('Biaya_ID'),
                 'Jenjang' => $this -> post ('Jenjang'),
                 'Gelombang' => $this -> post ('Gelombang'),

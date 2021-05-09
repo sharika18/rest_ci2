@@ -12,7 +12,6 @@ class Model_biaya_detail extends CI_Model
             return $this->db->get_where('tb_biaya_detail', ['biaya_detail_id' => $id]) ->result_array();
         }
     }
-
     
     public function deleteBiayaDetail($id)
     {

@@ -9,7 +9,6 @@
         {
             // Construct the parent class
             parent::__construct();
-            # mahasiswa alias Mahasiswa_model... 
             $this->load->model('Model_biaya_detail','mbiayadetail'); 
             # contoh menggunakan limit...
             //$this->methods['index_get']['limit'] = 2;
@@ -32,8 +31,6 @@
             $lastquery  = $this->db->last_query();
             if($biayadetail)
             {
-                // $this->response(
-                // $mahasiswa, RestController::HTTP_OK );
                 $this->response([
                     'status'    => true,
                     'query'     => $lastquery,
@@ -55,12 +52,6 @@
             $data = [
                 # alt + Shift + bawah > untuk copy data ke baris bawah
                 # alt + bawah/atas > untuk memindahkan data baris atas ke bawah
-                // 'Deskripsi' => $this -> post ('Deskripsi'),
-                // // 'Jenjang' => $this -> post ('Jenjang'),
-                // 'CreatedBy' => $this -> post ('CreatedBy'),
-                // 'CreatedDate' => $this -> post ('CreatedDate'),
-                // 'ModifiedBy' => $this -> post ('ModifiedBy'),
-                // 'ModifiedDate' => $this -> post ('ModifiedDate'),
                 'Biaya_ID' => $this -> post ('Biaya_ID'),
                 'Jenjang' => $this -> post ('Jenjang'),
                 'Gelombang' => $this -> post ('Gelombang'),
@@ -127,6 +118,43 @@
                         'message'   => 'id not found'
                     ], 404 /*RestController::HTTP_NOT_FOUND*/ );
                 }
+            }
+        }
+
+        public function index_put()
+        {
+            $id = $this->put('id');
+            $data = [
+                # alt + Shift + bawah > untuk copy data ke baris bawah
+                # alt + bawah/atas > untuk memindahkan data baris atas ke bawah
+                'Biaya_ID'      => $this -> put ('Biaya_ID'),
+                'Jenjang'       => $this -> put ('Jenjang'),
+                'Gelombang'     => $this -> put ('Gelombang'),
+                'Nominal'       => $this -> put ('Nominal'),
+                'Ketentuan'     => $this -> put ('Ketentuan'),
+                'StartDate'     => $this -> put ('StartDate'),
+                'EndDate'       => $this -> put ('EndDate'),
+                'CreatedBy'     => $this -> put ('CreatedBy'),
+                'CreatedDate'   => $this -> put ('CreatedDate'),
+                'ModifiedBy'    => $this -> put ('ModifiedBy'),
+                'ModifiedDate'  => $this -> put ('ModifiedDate'),
+            ];
+
+            if ($this->mbiayadetail->updateBiayaDetail($data, $id) > 0) 
+            {
+                # ok...
+                $this->response([
+                    'status' => true,
+                    'message' => 'Biaya has been updated'
+                ], 400 /*RestController::HTTP_NO_CONTENT*/ );
+            }
+            else
+            {
+                #failed
+                $this->response([
+                    'status' => false,
+                    'message' => 'failed update biaya'
+                ],  400 /*RestController::HTTP_BAD_REQUEST*/);
             }
         }
     }

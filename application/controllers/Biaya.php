@@ -140,7 +140,7 @@
                 $this->response([
                     'status' => true,
                     'message' => 'Biaya has been updated'
-                ], 400 /*RestController::HTTP_NO_CONTENT*/ );
+                ], 201 /*RestController::HTTP_NO_CONTENT*/ );
             }
             else
             {

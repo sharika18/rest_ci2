@@ -52,17 +52,17 @@
             $data = [
                 # alt + Shift + bawah > untuk copy data ke baris bawah
                 # alt + bawah/atas > untuk memindahkan data baris atas ke bawah
-                'Biaya_ID' => $this -> post ('Biaya_ID'),
-                'Jenjang' => $this -> post ('Jenjang'),
-                'Gelombang' => $this -> post ('Gelombang'),
-                'Nominal' => $this -> post ('Nominal'),
-                'Ketentuan' => $this -> post ('Ketentuan'),
-                'StartDate' => $this -> post ('StartDate'),
-                'EndDate' => $this -> post ('EndDate'),
-                'CreatedBy' => $this -> post ('CreatedBy'),
-                'CreatedDate' => $this -> post ('CreatedDate'),
-                'ModifiedBy' => $this -> post ('ModifiedBy'),
-                'ModifiedDate' => $this -> post ('ModifiedDate'),
+                'Biaya_ID'      => $this -> post ('Biaya_ID'),
+                'Jenjang'       => $this -> post ('Jenjang'),
+                'Gelombang'     => $this -> post ('Gelombang'),
+                'Nominal'       => $this -> post ('Nominal'),
+                'Ketentuan'     => $this -> post ('Ketentuan'),
+                'StartDate'     => $this -> post ('StartDate'),
+                'EndDate'       => $this -> post ('EndDate'),
+                'CreatedBy'     => $this -> post ('CreatedBy'),
+                'CreatedDate'   => $this -> post ('CreatedDate'),
+                'ModifiedBy'    => $this -> post ('ModifiedBy'),
+                'ModifiedDate'  => $this -> post ('ModifiedDate'),
             ];
 
             $lastquery  = $this->db->last_query();
@@ -146,7 +146,7 @@
                 $this->response([
                     'status' => true,
                     'message' => 'Biaya has been updated'
-                ], 400 /*RestController::HTTP_NO_CONTENT*/ );
+                ], 201 /*RestController::HTTP_NO_CONTENT*/ );
             }
             else
             {

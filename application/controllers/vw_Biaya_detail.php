@@ -19,15 +19,9 @@
         public function index_get()
         {
             $id = $this-> get ('id');
-    
-            if ($id === null) 
-            {
-                $biayadetail = $this->mbiayadetail->getBiayaDetail();
-            }
-            else
-            {
-                $biayadetail = $this->mbiayadetail->getBiayaDetail($id);
-            }
+            $status = 1;
+            //$this->response([$status]);
+            $biayadetail = $this->mbiayadetail->getBiayaDetail($id, $status);
 
             $lastquery  = $this->db->last_query();
             if($biayadetail)

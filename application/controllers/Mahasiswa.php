@@ -39,10 +39,6 @@
                 else
                 {
                     $mahasiswa = $this->mhs->getMahasiswa($id, $nama);
-                    
-                    //var_dump($this->db->last_query());
-                    //var_dump($mahasiswa);
-                    //print_r($this->db->last_query());
                 }
             }
             else

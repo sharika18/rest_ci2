@@ -12,7 +12,6 @@
             $this->load->model('Model_biaya_detail','mbiayadetail'); 
             # contoh menggunakan limit...
             //$this->methods['index_get']['limit'] = 2;
-            
         }
 
         public function index_get()
@@ -63,6 +62,7 @@
                 'CreatedDate'   => $this -> post ('CreatedDate'),
                 'ModifiedBy'    => $this -> post ('ModifiedBy'),
                 'ModifiedDate'  => $this -> post ('ModifiedDate'),
+                'Status'        => $this -> post ('Status'),
             ];
 
             $lastquery  = $this->db->last_query();
@@ -138,6 +138,7 @@
                 'CreatedDate'   => $this -> put ('CreatedDate'),
                 'ModifiedBy'    => $this -> put ('ModifiedBy'),
                 'ModifiedDate'  => $this -> put ('ModifiedDate'),
+                'Status'        => $this -> put ('Status'),
             ];
 
             if ($this->mbiayadetail->updateBiayaDetail($data, $id) > 0) 

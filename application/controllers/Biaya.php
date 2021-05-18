@@ -69,7 +69,7 @@
                     $this->response([
                         'status'    => true,
                         'id'        => $id,
-                        'message'   => 'biaya deleted'
+                        'message'   => 'Data deleted'
                     ], RestController::HTTP_OK /*204 RestController::HTTP_NO_CONTENT*/ );
                 }
                 else
@@ -103,7 +103,7 @@
                 $this->response([
                     'status'    => true,
                     'query'     => $lastquery,
-                    'message'   => 'new biaya has been created'
+                    'message'   => 'Data has been created'
                 ], 201 /*RestController::HTTP_CREATED*/);
             }
             else
@@ -134,7 +134,7 @@
                 # ok...
                 $this->response([
                     'status' => true,
-                    'message' => 'Biaya has been updated'
+                    'message' => 'Data has been updated'
                 ], 201 /*RestController::HTTP_NO_CONTENT*/ );
             }
             else
@@ -142,7 +142,7 @@
                 #failed
                 $this->response([
                     'status' => false,
-                    'message' => 'failed update biaya'
+                    'message' => 'failed update data'
                 ],  400 /*RestController::HTTP_BAD_REQUEST*/);
             }
         }

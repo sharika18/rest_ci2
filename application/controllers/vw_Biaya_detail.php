@@ -18,16 +18,21 @@
 
         public function index_get()
         {
-            $id = $this-> get ('id');
-            $status = 1;
-            //$this->response([$status]);
-            $biayadetail = $this->mbiayadetail->getBiayaDetail($id, $status);
+            $jenjang = $this-> get('jenjang');
+            $status = $this-> get('status');
+
+            if($jenjang == null && $status == null)
+            {
+                $biayadetail = $this->mbiayadetail->getAllBiayaDetail();
+            }
+            else
+            {
+                $biayadetail = $this->mbiayadetail->getBiayaDetailByJenjang($status, $jenjang);
+            }
 
             $lastquery  = $this->db->last_query();
             if($biayadetail)
             {
-                // $this->response(
-                // $mahasiswa, RestController::HTTP_OK );
                 $this->response([
                     'status'    => true,
                     'query'     => $lastquery,

@@ -7,23 +7,24 @@
     {
         function __construct()
         {
-            // Construct the parent class
             parent::__construct();
-            # mahasiswa alias Mahasiswa_model... 
             $this->load->model('Model_vw_biaya_detail','mbiayadetail'); 
-            # contoh menggunakan limit...
-            //$this->methods['index_get']['limit'] = 2;
             
         }
 
         public function index_get()
         {
+            $id = $this-> get('id');
             $jenjang = $this-> get('jenjang');
             $status = $this-> get('status');
 
-            if($jenjang == null && $status == null)
+            if($id == null && $jenjang == null && $status == null)
             {
                 $biayadetail = $this->mbiayadetail->getAllBiayaDetail();
+            }
+            else if($id != null)
+            {
+                $biayadetail = $this->mbiayadetail->getBiayaDetailByID($id);
             }
             else
             {

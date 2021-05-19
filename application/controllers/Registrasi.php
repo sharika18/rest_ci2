@@ -59,6 +59,8 @@
                 'DariBerapaSaudara' => $this -> post ('DariBerapaSaudara'),
                 'TinggiBadan'       => $this -> post ('TinggiBadan'),
                 'BeratBadan'        => $this -> post ('BeratBadan'),
+                'AlamatSantri' 		=> $this -> post ('AlamatSantri'),
+			    'AsalSekolah' 		=> $this -> post ('AsalSekolah'),
                 'UkuranBaju'        => $this -> post ('UkuranBaju'),
                 'UkuranCelana'      => $this -> post ('UkuranCelana'),
                 'UkuranJilbab'      => $this -> post ('UkuranJilbab'),
@@ -86,6 +88,8 @@
                 'WaliPekerjaan'     => $this -> post ('WaliPekerjaan'),
                 'WaliPenghasilan'   => $this -> post ('WaliPenghasilan'),
                 'WaliHP'            => $this -> post ('WaliHP'),
+                'WaliAlamat'        => $this -> post ('WaliAlamat'),
+                'Status'            => $this -> post ('Status'),
             ];
 
             $lastquery  = $this->db->last_query();
@@ -125,6 +129,8 @@
                 'DariBerapaSaudara' => $this -> put ('DariBerapaSaudara'),
                 'TinggiBadan'       => $this -> put ('TinggiBadan'),
                 'BeratBadan'        => $this -> put ('BeratBadan'),
+                'AlamatSantri' 		=> $this -> put ('AlamatSantri'),
+			    'AsalSekolah' 		=> $this -> put ('AsalSekolah'),
                 'UkuranBaju'        => $this -> put ('UkuranBaju'),
                 'UkuranCelana'      => $this -> put ('UkuranCelana'),
                 'UkuranJilbab'      => $this -> put ('UkuranJilbab'),
@@ -152,6 +158,8 @@
                 'WaliPekerjaan'     => $this -> put ('WaliPekerjaan'),
                 'WaliPenghasilan'   => $this -> put ('WaliPenghasilan'),
                 'WaliHP'            => $this -> put ('WaliHP'),
+                'WaliAlamat'        => $this -> put ('WaliAlamat'),
+                'Status'            => $this -> put ('Status'),
             ];
 
             if ($this->mregistrasi->updateRegistrasi($data, $id) > 0) 

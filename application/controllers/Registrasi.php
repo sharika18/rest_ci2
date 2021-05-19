@@ -46,7 +46,7 @@
         public function index_post()
         {
             $data = [
-                'Biaya_Detail_ID'  => $this -> post ('Biaya_Detail_ID'),
+                'Biaya_Detail_ID'   => $this -> post ('Biaya_Detail_ID'),
                 'DeskripsiBiaya'    => $this -> post ('DeskripsiBiaya'),
                 'Jenjang'           => $this -> post ('Jenjang'),
                 'NamaLengkap'       => $this -> post ('NamaLengkap'),

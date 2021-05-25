@@ -75,10 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'db_arrisalah',
+	'hostname' => 'srv99.niagahoster.com:3306',
+	'username' => 'n1068821_devdb_arrisalah_admin',
+	'password' => 'admin',
+	'database' => 'n1068821_devdb_arrisalah',
+	// 'database' => 'devdb_arrisalah',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

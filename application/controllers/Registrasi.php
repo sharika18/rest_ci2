@@ -90,6 +90,7 @@
                 'WaliHP'            => $this -> post ('WaliHP'),
                 'WaliAlamat'        => $this -> post ('WaliAlamat'),
                 'Status'            => $this -> post ('Status'),
+                'Bukti_Pembayaran'	=> $this -> post ('Bukti_Pembayaran'),
             ];
 
             $lastquery  = $this->db->last_query();

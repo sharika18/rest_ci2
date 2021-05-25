@@ -3,12 +3,12 @@
 
     use chriskacerguis\RestServer\RestController;
 
-    class vw_Biaya_detail extends RestController
+    class VwBiayaDetail extends RestController
     {
         function __construct()
         {
             parent::__construct();
-            $this->load->model('Model_vw_biaya_detail','mbiayadetail'); 
+            $this->load->model('Model_VwBiayaDetail','mbiayadetail'); 
             
         }
 
@@ -50,5 +50,3 @@
             }
         }
     }
-
-    

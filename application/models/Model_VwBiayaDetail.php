@@ -1,5 +1,5 @@
 <?php
-class Model_vw_biaya_detail extends CI_Model
+class Model_VwBiayaDetail extends CI_Model
 {
     public function getAllBiayaDetail()
     {

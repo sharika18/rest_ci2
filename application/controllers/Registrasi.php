@@ -7,8 +7,27 @@
     {
         function __construct()
         {
-            parent::__construct();
+            include "construct.php";
             $this->load->model('Model_Registrasi','mregistrasi');             
+        }
+
+        public function upload_post()
+        {
+            $fileFolder = $this-> post ('fileFolder');
+            if(move_uploaded_file($_FILES['file']['tmp_name'], $this->uploadPath.$fileFolder."/".$_FILES['file']['name']))
+            {
+                $this->response([
+                    'status'    => true,
+                    'fileName'     => $_FILES['file']['name'].$fileFolder
+                ], RestController::HTTP_OK);
+            }
+            else
+            {
+                $this->response([
+                    'status'    => false,
+                    'fileName'     => $_FILES['file']['name']
+                ], RestController::HTTP_OK);
+            }
         }
 
         public function index_get()

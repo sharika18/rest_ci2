@@ -33,23 +33,34 @@
         public function index_get()
         {
             $id = $this-> get ('id');
-    
-            if ($id === null) 
+            $status = $this -> get ('status');
+
+            if ($id === null && $status === null) 
             {
-                $registrasi = $this->mregistrasi->getRegistrasi();
+                $registrasi = $this->mregistrasi->getAllRegistrasi();
             }
-            else
+            elseif ($id != null && $status != null)
             {
-                $registrasi = $this->mregistrasi->getRegistrasi($id);
+                $registrasi = $this->mregistrasi->getRegistrasiByIDStatus($id, $status);
+            }
+            elseif ($id != null)
+            {
+                $registrasi = $this->mregistrasi->getRegistrasiByID($id);
+            }
+            elseif ($status != null)
+            {
+                $registrasi = $this->mregistrasi->getRegistrasiByStatus($status);
             }
 
             $lastquery  = $this->db->last_query();
+            $countdata  = count( $registrasi);
             if($registrasi)
             {
                 $this->response([
                     'status'    => true,
                     'query'     => $lastquery,
-                    'data'      => $registrasi
+                    'countdata' => $countdata,
+                    'data'      => $registrasi,
                 ], RestController::HTTP_OK);
             }
             else

@@ -50,8 +50,8 @@
 
         public function index_delete()
         {
-        # code...
-        $id =$this->delete('id');
+            # code...
+            $id =$this->delete('id');
             if ($id === null) 
             {
                 # code...
@@ -120,8 +120,6 @@
         {
             $id = $this->put('id');
             $data = [
-                # alt + Shift + bawah > untuk copy data ke baris bawah
-                # alt + bawah/atas > untuk memindahkan data baris atas ke bawah
                 'Deskripsi'     => $this -> put ('Deskripsi'),
                 'CreatedBy'     => $this -> put ('CreatedBy'),
                 'CreatedDate'   => $this -> put ('CreatedDate'),
@@ -139,7 +137,6 @@
             }
             else
             {
-                #failed
                 $this->response([
                     'status' => false,
                     'message' => 'failed update data'

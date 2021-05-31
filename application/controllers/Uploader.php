@@ -12,8 +12,13 @@
 
         public function upload_post()
         {
+            $tanggalUpload = date("Ymd");
             $fileFolder = $this-> post ('fileFolder');
-            if(move_uploaded_file($_FILES['file']['tmp_name'], $this->uploadPath.$fileFolder."/".$_FILES['file']['name']))
+            $filePath = $this->uploadPath.$fileFolder."/".$tanggalUpload;
+            if (!file_exists($filePath)) {
+                mkdir($filePath);
+            }
+            if(move_uploaded_file($_FILES['file']['tmp_name'], $filePath."/".$_FILES['file']['name']))
             {
                 $this->response([
                     'status'    => true,
@@ -29,5 +34,24 @@
                     'message' => 'File Not Uploaded'
                 ], RestController::HTTP_OK);
             }
+        }
+
+        public function download_get()
+        {
+            $tanggalUpload = $this-> get ('tanggalUpload');
+            $folderPath = $this-> get ('folderPath');
+            $fileName = $this-> get ('fileName');
+
+            $filePath = 'assets/uploads/'.$folderPath.'/'.$tanggalUpload.'/'.$fileName;
+            $imagedata = file_get_contents($filePath);
+            $extension = mime_content_type($filePath);
+            $base64 = base64_encode($imagedata);
+
+            $filename ="a";
+            $this->response([
+                'status'        => true,
+                'contentType'   => $extension,
+                'data'          => $base64,
+            ], RestController::HTTP_OK);
         }
     }

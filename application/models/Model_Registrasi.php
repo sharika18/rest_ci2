@@ -7,16 +7,23 @@ class Model_Registrasi extends CI_Model
         return $this->db->affected_rows();
     }
 
-    public function getRegistrasi($id = null)
+    // get data registrasi
+    public function getAllRegistrasi()
     {
-        if ($id === null) 
-        {
-            return $this->db->get('tb_registrasi')->result_array();
-        }
-        else
-        {
-            return $this->db->get_where('tb_registrasi', ['id_registrasi' => $id]) ->result_array();
-        }
+        return $this->db->get('tb_registrasi')->result_array();
+    }
+    public function getRegistrasiByID($id = null)
+    {
+        return $this->db->get_where('tb_registrasi', ['id_registrasi' => $id])  ->result_array();
+    }
+    public function getRegistrasiByStatus($status = null)
+    {
+        return $this->db->get_where('tb_registrasi', ['status' => $status]) ->result_array();
+
+    }
+    public function getRegistrasiByIDStatus($id = null, $status = null)
+    {
+        return $this->db->get_where('tb_registrasi', ['id_registrasi' => $id, 'status' => $status]) ->result_array();
     }
 
     public function updateRegistrasi($data, $id)

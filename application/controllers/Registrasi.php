@@ -53,7 +53,7 @@
             }
 
             $lastquery  = $this->db->last_query();
-            $countdata  = count( $registrasi);
+            $countdata  = count($registrasi);
             if($registrasi)
             {
                 $this->response([
@@ -121,6 +121,8 @@
                 'WaliAlamat'        => $this -> post ('WaliAlamat'),
                 'Status'            => $this -> post ('Status'),
                 'Bukti_Pembayaran'	=> $this -> post ('Bukti_Pembayaran'),
+                'CreatedBy'         => $this -> post ('CreatedBy'),
+                'CreatedDate'       => $this -> post ('CreatedDate'),
             ];
 
             $lastquery  = $this->db->last_query();
@@ -191,6 +193,8 @@
                 'WaliHP'            => $this -> put ('WaliHP'),
                 'WaliAlamat'        => $this -> put ('WaliAlamat'),
                 'Status'            => $this -> put ('Status'),
+                'ModifiedBy'        => $this -> put ('ModifiedBy'),
+                'ModifiedDate'      => $this -> put ('ModifiedDate'),
             ];
 
             if ($this->mregistrasi->updateRegistrasi($data, $id) > 0) 

@@ -64,11 +64,12 @@
                 ], RestController::HTTP_OK);
             }
             else
+            $countdata = '0';
             {
                 $this->response([
                     'status'    => false,
                     'query'     => $lastquery,
-                    "countdata" => 0,
+                    "countdata" => $countdata,
                     'message'   => 'id not found',
                 ], RestController::HTTP_NOT_FOUND);
             }

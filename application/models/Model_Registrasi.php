@@ -14,7 +14,7 @@ class Model_Registrasi extends CI_Model
     }
     public function getRegistrasiByID($id = null)
     {
-        return $this->db->get_where('tb_registrasi', ['id_registrasi' => $id])  ->result_array();
+        return $this->db->get_where('tb_registrasi', ['id_registrasi' => $id]) ->result_array();
     }
     public function getRegistrasiByStatus($status = null)
     {

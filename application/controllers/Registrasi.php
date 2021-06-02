@@ -68,6 +68,7 @@
                 $this->response([
                     'status'    => false,
                     'query'     => $lastquery,
+                    "countdata" => 0,
                     'message'   => 'id not found',
                 ], RestController::HTTP_NOT_FOUND);
             }

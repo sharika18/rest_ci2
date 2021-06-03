@@ -32,6 +32,12 @@ class Model_Registrasi extends CI_Model
         return $this->db->affected_rows();
     }
 
+    public function konfirmasi($data, $id)
+    {
+        $this->db->update('tb_registrasi', $data, ['id_registrasi' => $id]);
+        return $this->db->affected_rows();
+    }
+
     public function deleteRegistrasi($id)
     {
         $this->db->delete('tb_registrasi', ['id_registrasi' => $id]);

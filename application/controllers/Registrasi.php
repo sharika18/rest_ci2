@@ -80,6 +80,7 @@
                 'Biaya_Detail_ID'   => $this -> post ('Biaya_Detail_ID'),
                 'DeskripsiBiaya'    => $this -> post ('DeskripsiBiaya'),
                 'Jenjang'           => $this -> post ('Jenjang'),
+                'Nominal'           => $this -> post ('Nominal'),
                 'NamaLengkap'       => $this -> post ('NamaLengkap'),
                 'NamaPanggilan'     => $this -> post ('NamaPanggilan'),
                 'TempatLahir'       => $this -> post ('TempatLahir'),
@@ -146,6 +147,29 @@
             }
         }
 
+        public function konfirmasipembayaran_put()
+        {
+            $id = $this->put('id');   
+            $data = ['Status' => $this -> put ('Status')];
+            $lastquery  = $this->db->last_query();
+            if ($this->mregistrasi->konfirmasi($data, $id) > 0) 
+            {
+                $this->response([
+                    'status'    => true,
+                    'query'     => $lastquery,
+                    'message'   => 'Data has been updated'
+                ], 201 /*RestController::HTTP_CREATED*/);
+            }
+            else
+            {
+                # not ok
+                $this->response([
+                    'status' => false,
+                    'message' => 'failed update data'
+                ],  400 /*RestController::HTTP_BAD_REQUEST*/);
+            }      
+        }
+
         public function index_put()
         {
             $id = $this->put('id');
@@ -153,6 +177,7 @@
                 'Biaya_Detail_ID'   => $this -> put ('Biaya_Detail_ID'),
                 'DeskripsiBiaya'    => $this -> put ('DeskripsiBiaya'),
                 'Jenjang'           => $this -> put ('Jenjang'),
+                'Nominal'           => $this -> put ('Nominal'),
                 'NamaLengkap'       => $this -> put ('NamaLengkap'),
                 'NamaPanggilan'     => $this -> put ('NamaPanggilan'),
                 'TempatLahir'       => $this -> put ('TempatLahir'),

@@ -147,10 +147,15 @@
             }
         }
 
-        public function konfirmasipembayaran_put()
+        public function KonfirmasiPembayaran_put()
         {
             $id = $this->put('id');   
-            $data = ['Status' => $this -> put ('Status')];
+            $date = date("Y-m-d");;
+            $data = [
+                'Status'        => $this -> put ('Status'),
+                'ModifiedBy'    => $this -> put ('ModifiedBy'),
+                'ModifiedDate'  => $date,
+            ];
             $lastquery  = $this->db->last_query();
             if ($this->mregistrasi->konfirmasi($data, $id) > 0) 
             {

@@ -147,7 +147,7 @@
             }
         }
 
-        public function konfirmasipembayaran_put()
+        public function KonfirmasiPembayaran_put()
         {
             $id = $this->put('id');   
             $data = ['Status' => $this -> put ('Status')];

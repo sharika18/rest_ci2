@@ -147,6 +147,29 @@
             }
         }
 
+        public function konfirmasipembayaran_put()
+        {
+            $id = $this->put('id');   
+            $data = ['Status' => $this -> put ('Status')];
+            $lastquery  = $this->db->last_query();
+            if ($this->mregistrasi->konfirmasi($data, $id) > 0) 
+            {
+                $this->response([
+                    'status'    => true,
+                    'query'     => $lastquery,
+                    'message'   => 'Data has been updated'
+                ], 201 /*RestController::HTTP_CREATED*/);
+            }
+            else
+            {
+                # not ok
+                $this->response([
+                    'status' => false,
+                    'message' => 'failed update data'
+                ],  400 /*RestController::HTTP_BAD_REQUEST*/);
+            }      
+        }
+
         public function index_put()
         {
             $id = $this->put('id');

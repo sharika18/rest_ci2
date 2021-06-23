@@ -49,4 +49,29 @@
                 ], RestController::HTTP_NOT_FOUND);
             }
         }
+
+        public function DataByStatus_get()
+        {
+            $status = $this-> get('status');
+
+            $biayadetail = $this->mbiayadetail->getBiayaDetailByStatus($status);
+
+            $lastquery  = $this->db->last_query();
+            if($biayadetail)
+            {
+                $this->response([
+                    'status'    => true,
+                    'query'     => $lastquery,
+                    'data'      => $biayadetail
+                ], RestController::HTTP_OK);
+            }
+            else
+            {
+                $this->response([
+                    'status'    => false,
+                    'query'     => $lastquery,
+                    'message'   => 'id not found',
+                ], RestController::HTTP_NOT_FOUND);
+            }
+        }
     }

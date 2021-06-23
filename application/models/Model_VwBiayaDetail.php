@@ -13,4 +13,8 @@ class Model_VwBiayaDetail extends CI_Model
     {
         return $this->db->get_where('vw_biaya_detail', ['Jenjang'=> $jenjang, 'Status' => $status]) ->result_array();
     }
+    public function getBiayaDetailByStatus($status = null)
+    {
+        return $this->db->get_where('vw_biaya_detail', ['Status' => $status]) ->result_array();
+    }
 }

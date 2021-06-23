@@ -223,7 +223,7 @@
                 'WaliPenghasilan'   => $this -> put ('WaliPenghasilan'),
                 'WaliHP'            => $this -> put ('WaliHP'),
                 'WaliAlamat'        => $this -> put ('WaliAlamat'),
-                'Status'            => $this -> put ('Status'),
+                //'Status'            => $this -> put ('Status'),
                 'ModifiedBy'        => $this -> put ('ModifiedBy'),
                 'ModifiedDate'      => $this -> put ('ModifiedDate'),
             ];

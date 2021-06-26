@@ -3,35 +3,25 @@
 
     use chriskacerguis\RestServer\RestController;
 
-    class role extends RestController
+    class controllerRole extends RestController
     {
         public function __construct()
         {
             // Construct the parent class
             parent::__construct();
-            $this->load->model('modelRole', 'mRole');
+            $this->load->model('modelRole', 'model');
         }
 
-        public function index_get()
+        public function getRoleAll_get()
         {
-            $id = $this-> get ('id');
-    
-            if ($id === null) 
-            {
-                $role = $this->mRole->getRole();
-            }
-            else
-            {
-                $role = $this->mRole->getRole($id);
-            }
-
+            $data = $this->model->getRoleAll();
             $lastquery  = $this->db->last_query();
-            if($role)
+            if($data)
             {
                 $this->response([
                     'status'    => true,
                     'query'     => $lastquery,
-                    'data'      => $role
+                    'data'      => $data
                 ], RestController::HTTP_OK);
             }
             else
@@ -39,7 +29,7 @@
                 $this->response([
                     'status'    => false,
                     'query'     => $lastquery,
-                    'message'   => 'id not found',
+                    'message'   => 'Data is empty',
                 ], RestController::HTTP_NOT_FOUND);
             }
         }

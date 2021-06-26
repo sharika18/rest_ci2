@@ -14,7 +14,7 @@
         {
             $tanggalUpload = date("Ymd");
             $fileFolder = $this-> post ('fileFolder');
-            $filePath = $this->uploadPath.$fileFolder;//."/".$tanggalUpload;
+            $filePath = $this->uploadPath.$fileFolder;//."/".$tanggalUpload; $this->folderBuktiPembayaran."/".$tanggalPendaftaran;
             if (!file_exists($filePath)) {
                 mkdir($filePath);
             }

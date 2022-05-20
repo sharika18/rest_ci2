@@ -1,5 +1,5 @@
 <?php
-    class modelRegistrasiAkunWali extends CI_Model
+    class ModelRegistrasiAkunWali extends CI_Model
     {
         
         public function insertRegistrasiAkunWali($data)

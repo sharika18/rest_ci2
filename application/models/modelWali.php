@@ -1,5 +1,5 @@
 <?php
-class modelWali extends CI_Model
+class ModelWali extends CI_Model
 {
     public function countWaliByNIK($nik = '')
     {

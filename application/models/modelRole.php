@@ -1,5 +1,5 @@
 <?php
-    class modelRole extends CI_Model
+    class ModelRole extends CI_Model
     {
         public function getRoleAll()
         {

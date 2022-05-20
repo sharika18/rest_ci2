@@ -3,7 +3,7 @@
 
     use chriskacerguis\RestServer\RestController;
 
-    class Biaya extends RestController
+    class Biayacopy extends RestController
     {
         function __construct()
         {
@@ -48,7 +48,6 @@
             }
         }
 
-        
         public function index_delete()
         {
             # code...
@@ -94,7 +93,6 @@
                 'CreatedDate' => $this -> post ('CreatedDate'),
                 'ModifiedBy' => $this -> post ('ModifiedBy'),
                 'ModifiedDate' => $this -> post ('ModifiedDate'),
-                'Periode' => $this -> post ('Periode'),
             ];
 
             $lastquery  = $this->db->last_query();

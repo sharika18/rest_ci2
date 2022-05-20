@@ -1,5 +1,5 @@
 <?php
-class Model_biaya extends CI_Model
+class ModelFinance extends CI_Model
 {
     public function getBiaya($id = null)
     {
@@ -12,6 +12,16 @@ class Model_biaya extends CI_Model
             return $this->db->get_where('tb_biaya', ['biaya_id' => $id]) ->result_array();
         }
     }
+
+    public function getFinancePeriode()
+    {
+        return $this->db->get('vwfinanceperiode')->result_array();
+    }
+
+    /*public function getAllFinanceByPeriode($periode = null)
+    {
+        return $this->db->get_where('tb_biaya', ['periode' => $periode]) ->result_array();
+    }*/
 
     public function deleteBiaya($id)
     {

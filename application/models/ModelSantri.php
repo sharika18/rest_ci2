@@ -30,4 +30,10 @@ class ModelSantri extends CI_Model
         $this->db->update('tb_santri', $data, ['NIS' => $NIS]);
         return $this->db->affected_rows();
     }
+
+    public function createOrangTua($data)
+    {
+        $this->db->insert('tb_orangtua', $data);
+        return $this->db->affected_rows();
+    }
 }

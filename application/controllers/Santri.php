@@ -61,6 +61,31 @@
             }
         }
 
+        // GET BY NIK WALI
+        public function getVwSantriDetailByNIKWali_get ()
+        {
+            $NIKWali = $this-> get ('NIKWali');
+            $data = $this->mSantri->getVwSantriDetailByNIKWali($NIKWali);
+
+            $lastquery  = $this->db->last_query();
+            if($data)
+            {
+                $this->response([
+                    'status'    => "true",
+                    'query'     => $lastquery,
+                    'data'      => $data
+                ], RestController::HTTP_OK);
+            }
+            else
+            {
+                $this->response([
+                    'status'    => false,
+                    'query'     => $lastquery,
+                    'message'   => 'id not found',
+                ], RestController::HTTP_NOT_FOUND);
+            }
+        }
+
         public function getOrangTuaByNIK_get ()
         {
             $NIK = $this-> get ('NIK');

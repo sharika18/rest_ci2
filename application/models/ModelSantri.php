@@ -13,6 +13,13 @@ class ModelSantri extends CI_Model
         return $this->db->query($sqlQuery)->result_array();
     }
 
+    // GET by NIK WALI
+    public function getVwSantriDetailByNIKWali($NIKWali = "")
+    {
+        $sqlQuery = "SELECT * FROM VwSantriDetail WHERE NIKWali = '".$NIKWali."'";
+        return $this->db->query($sqlQuery)->result_array();
+    }
+
     public function getOrangTuaByNIK($NIK = "")
     {
         $sqlQuery = "SELECT * FROM tb_orangtua WHERE NIK = '".$NIK."'";

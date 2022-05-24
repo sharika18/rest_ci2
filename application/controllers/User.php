@@ -108,6 +108,40 @@
             }
         }
 
+        public function createUser_post()
+        {
+            $data = [
+                'userName'              => $this -> post ('userName'),
+                'email'                 => $this -> post ('email'),
+                'password'              => $this -> post ('password'),
+                'NIK'                   => $this -> post ('NIK'),
+                'Role'                  => $this -> post ('Role'),
+                'CreatedBy'             => $this -> post ('CreatedBy'),
+                'CreatedDate'           => $this -> post ('CreatedDate'),
+                'ModifiedBy'            => $this -> post ('ModifiedBy'),
+                'ModifiedDate'          => $this -> post ('ModifiedDate'),
+            ];
+
+            $lastquery  = $this->db->last_query();
+            
+            if ($this->mUser->createUser($data) > 0) 
+            {
+                $this->response([
+                    'status'    => true,
+                    'query'     => $lastquery,
+                    'message'   => 'new register has been created'
+                ], 201 /*RestController::HTTP_CREATED*/);
+            }
+            else
+            {
+                # not ok
+                $this->response([
+                    'status' => false,
+                    'message' => 'failed create data'
+                ],  400 /*RestController::HTTP_BAD_REQUEST*/);
+            }
+        }
+
         public function updateUserById_put()
         {
             $id = $this->put('id');

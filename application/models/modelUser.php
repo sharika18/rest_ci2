@@ -23,6 +23,12 @@ class ModelUser extends CI_Model
         return $this->db->query($sqlQuery)->result_array();
     }
 
+    public function createUser($data)
+    {
+        $this->db->insert('tb_user', $data);
+        return $this->db->affected_rows();
+    }
+
     public function updateUserById($data, $id)
     {
         $this->db->update('tb_user', $data, ['userId' => $id]);

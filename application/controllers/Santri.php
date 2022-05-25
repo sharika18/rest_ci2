@@ -171,6 +171,7 @@
                 'Pekerjaan'             => $this -> post ('Pekerjaan'),
                 'PenghasilanPerBulan'   => $this -> post ('PenghasilanPerBulan'),
                 'NomorHandphone'        => $this -> post ('NomorHandphone'),
+                'Alamat'                => $this -> post ('Alamat'),
                 'Email'                 => $this -> post ('Email'),
                 'CreatedBy'             => $this -> post ('CreatedBy'),
                 'CreatedDate'           => $this -> post ('CreatedDate'),
@@ -194,6 +195,40 @@
                 $this->response([
                     'status' => false,
                     'message' => 'failed create data'
+                ],  400 /*RestController::HTTP_BAD_REQUEST*/);
+            }
+        }
+
+        public function updateOrangTua_put()
+        {
+            $NIK = $this->put('NIK');
+            $data = [
+                'NamaLengkap'           => $this -> put ('NamaLengkap'),
+                'TempatLahir'           => $this -> put ('TempatLahir'),
+                'TanggalLahir'          => $this -> put ('TanggalLahir'),
+                'PendidikanTerakhir'    => $this -> put ('PendidikanTerakhir'),
+                'Pekerjaan'             => $this -> put ('Pekerjaan'),
+                'PenghasilanPerBulan'   => $this -> put ('PenghasilanPerBulan'),
+                'NomorHandphone'        => $this -> put ('NomorHandphone'),
+                'Alamat'                => $this -> put ('Alamat'),
+                'Email'                 => $this -> put ('Email'),
+                'ModifiedBy'            => $this -> put ('ModifiedBy'),
+                'ModifiedDate'          => $this -> put ('ModifiedDate'),
+            ];
+
+            if ($this->mSantri->updateOrangTua($data, $NIK) > 0) 
+            {
+                # ok...
+                $this->response([
+                    'status' => true,
+                    'message' => 'Data has been updated'
+                ], 201 /*RestController::HTTP_NO_CONTENT*/ );
+            }
+            else
+            {
+                $this->response([
+                    'status' => false,
+                    'message' => 'failed update data'
                 ],  400 /*RestController::HTTP_BAD_REQUEST*/);
             }
         }

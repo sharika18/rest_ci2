@@ -1,9 +1,9 @@
 <?php
-class ModelSantri extends CI_Model
+class ModelKelasAsrama extends CI_Model
 {
-    public function getAllVwSantriDetail()
+    public function getAllVwKamarDetail()
     {
-        $sqlQuery = "SELECT * FROM VwSantriDetail";
+        $sqlQuery = "SELECT * FROM VwKamarDetail";
         return $this->db->query($sqlQuery)->result_array();
     }
 

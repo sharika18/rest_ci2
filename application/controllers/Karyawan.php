@@ -31,7 +31,7 @@
                 $this->response([
                     'status'    => false,
                     'query'     => $lastquery,
-                    'message'   => 'id not found',
+                    'data'      => array()
                 ], RestController::HTTP_NOT_FOUND);
             }
         }
@@ -55,7 +55,7 @@
                 $this->response([
                     'status'    => false,
                     'query'     => $lastquery,
-                    'message'   => 'id not found',
+                    'data'      => array()
                 ], RestController::HTTP_NOT_FOUND);
             }
         }
@@ -79,7 +79,7 @@
                 $this->response([
                     'status'    => false,
                     'query'     => $lastquery,
-                    'message'   => 'id not found',
+                    'data'      => array()
                 ], RestController::HTTP_NOT_FOUND);
             }
         }
@@ -103,7 +103,7 @@
                 $this->response([
                     'status'    => false,
                     'query'     => $lastquery,
-                    'message'   => 'id not found',
+                    'data'      => array()
                 ], RestController::HTTP_NOT_FOUND);
             }
         }
@@ -127,7 +127,7 @@
                 $this->response([
                     'status'    => false,
                     'query'     => $lastquery,
-                    'message'   => 'id not found',
+                    'data'      => array()
                 ], RestController::HTTP_NOT_FOUND);
             }
         }
@@ -169,7 +169,7 @@
                 $this->response([
                     'status'    => false,
                     'query'     => $lastquery,
-                    'message'   => 'id not found',
+                    'data'      => array()
                 ], RestController::HTTP_NOT_FOUND);
             }
         }
@@ -186,7 +186,7 @@
                 'jabatanTugasID'    => $this -> post ('jabatanTugasID'),
                 'unitID'            => $this -> post ('unitID'),
                 'statusID'          => $this -> post ('statusID'),
-                'pedidikanID'       => $this -> post ('pendidikanID'),
+                'pendidikanID'      => $this -> post ('pendidikanID'),
                 'CreatedBy'         => $this -> post ('CreatedBy'),
                 'CreatedDate'       => $this -> post ('CreatedDate'),
                 'ModifiedBy'        => $this -> post ('ModifiedBy'),
@@ -209,7 +209,7 @@
                 # not ok
                 $this->response([
                     'status' => false,
-                    'message' => 'failed create data'
+                    'message' => 'failed create data with id' .$id
                 ],  400 /*RestController::HTTP_BAD_REQUEST*/);
             }
         }
@@ -220,16 +220,15 @@
             $data = [
                 # alt + Shift + bawah > untuk copy data ke baris bawah
                 # alt + bawah/atas > untuk memindahkan data baris atas ke bawah
-                'NIP' => $this -> put ('NIP'),
-                'NamaLengkap' => $this -> put ('NamaLengkap'),
-                'Email' => $this -> put ('Email'),
-                'jabatanTugasID' => $this -> put ('jabatanTugasID'),
-                'unitID' => $this -> put ('unitID'),
-                'statusID' => $this -> put ('statusID'),
-                'CreatedBy' => $this -> put ('CreatedBy'),
-                'CreatedDate' => $this -> put ('CreatedDate'),
-                'ModifiedBy' => $this -> put ('ModifiedBy'),
-                'ModifiedDate' => $this -> put ('ModifiedDate'),
+                'NIP'               => $this -> put ('NIP'),
+                'NamaLengkap'       => $this -> put ('NamaLengkap'),
+                'Email'             => $this -> put ('Email'),
+                'pendidikanID'      => $this -> put ('pendidikanID'),
+                'jabatanTugasID'    => $this -> put ('jabatanTugasID'),
+                'unitID'            => $this -> put ('unitID'),
+                'statusID'          => $this -> put ('statusID'),
+                'ModifiedBy'        => $this -> put ('ModifiedBy'),
+                'ModifiedDate'      => $this -> put ('ModifiedDate'),
             ];
 
             if ($this->mKaryawan->updateKaryawan($data, $id) > 0) 
@@ -248,6 +247,8 @@
                 ],  400 /*RestController::HTTP_BAD_REQUEST*/);
             }
         }
+
+        
 
         public function deleteKaryawan_delete()
         {

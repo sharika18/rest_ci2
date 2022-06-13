@@ -257,4 +257,34 @@
                 }
             }
         }
+
+        public function updatePayrollByNIPPeriode_put()
+        {
+            $NIP        = $this->put('NIP');
+            $Periode    = $this->put('Periode');
+            $data = [
+                # alt + Shift + bawah > untuk copy data ke baris bawah
+                # alt + bawah/atas > untuk memindahkan data baris atas ke bawah
+                'isSent'            => $this -> put('isSent'),
+                // 'ModifiedBy'        => $this -> put ('ModifiedBy'),
+                // 'ModifiedDate'      => $this -> put ('ModifiedDate'),
+            ];
+
+            if ($this->mPayroll->updatePayrollByNIPPeriode($data, $NIP, $Periode) > 0) 
+            {
+                # ok...
+                $this->response([
+                    'status' => true,
+                    'message' => 'Data has been updated'
+                ], 201 /*RestController::HTTP_NO_CONTENT*/ );
+            }
+            else
+            {
+                $this->response([
+                    'status' => false,
+                    'message' => 'failed update data',
+                    'data' => $data
+                ],  400 /*RestController::HTTP_BAD_REQUEST*/);
+            }
+        }
     }

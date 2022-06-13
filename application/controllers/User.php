@@ -55,7 +55,7 @@
                 $this->response([
                     'status'    => false,
                     'query'     => $lastquery,
-                    'message'   => 'id not found',
+                    'data'      => array()
                 ], RestController::HTTP_NOT_FOUND);
             }
         }
@@ -79,6 +79,7 @@
                 $this->response([
                     'status'    => false,
                     'query'     => $lastquery,
+                    'data'      => array(),
                     'message'   => 'id not found',
                 ], RestController::HTTP_NOT_FOUND);
             }

@@ -25,6 +25,15 @@ class ModelSantri extends CI_Model
         return $this->db->query($sqlQuery)->result_array();
     }
 
+    public function getNotAnggotaKamar()
+    {
+        $sqlQuery = 
+            "SELECT * FROM `tb_santri` 
+                WHERE NIS NOT IN 
+                (SELECT NISAnggotaKamar FROM tb_anggota_kamar)";
+        return $this->db->query($sqlQuery)->result_array();
+    }
+
     public function createSantri($data)
     {
         $this->db->insert('tb_santri', $data);
